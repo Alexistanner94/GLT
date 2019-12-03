@@ -4,7 +4,7 @@ var db = require("../models");
 
 db.sequelize.sync({ force: true }).then(function() {
   fetch(
-    "https://api.sportsdata.io/golf/v2/json/PlayerSeasonStats/2019?key=e9828bf943474a838f59ff47bc3c75e9"
+    "https://api.sportsdata.io/golf/v2/json/PlayerSeasonStats/2019?key=afc83775bbd2420182e7c78e8bdd6236"
   )
     .then(res => res.json())
     .then(rankings =>
@@ -29,7 +29,6 @@ db.sequelize.sync({ force: true }).then(function() {
           return ranking;
         })
         .filter(function(ranking) {
-          console.log(ranking);
           return (ranking.ranking <= 127) & (ranking.ranking != null);
         })
     )

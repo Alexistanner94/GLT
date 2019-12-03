@@ -6,7 +6,7 @@ var fetch = require("node-fetch");
 
 db.sequelize.sync().then(function() {
   fetch(
-    "https://api.sportsdata.io/golf/v2/json/Tournaments/2020?key=e9828bf943474a838f59ff47bc3c75e9"
+    "https://api.sportsdata.io/golf/v2/json/Tournaments/2020?key=afc83775bbd2420182e7c78e8bdd6236"
   )
     .then(res => res.json())
     .then(tournaments =>

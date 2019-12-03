@@ -7,5 +7,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     name: DataTypes.STRING
   });
+
+  Participants.associate = function(models) {
+    Participants.belongsToMany(models.Players, {
+      through: "Rosters"
+    });
+  };
+
   return Participants;
 };
