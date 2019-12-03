@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const http = require("http");
 PORT = process.env.PORT || 8080;
 server = http.createServer(function(req, res) {
@@ -24,3 +25,26 @@ function showSlides() {
   slides[slideIndex - 1].style.display = "block";
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
+=======
+require("dotenv").config();
+var express = require("express");
+
+var app = express();
+var PORT = process.env.PORT || 8080;
+
+var db = require("./models");
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(express.static("public"));
+
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
+>>>>>>> d096cbab8416fd15cd3f64e688faef8451bda11d
