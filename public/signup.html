@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div class="bg-image">
+      <img src="./images/golf7.png" alt="" class="center" />
+    </div>
+    <div class="bg-text">
+      <form class="modal-content" action="/action_page.php">
+        <div class="container">
+          <h1 class="signup">Sign Up</h1>
+          <p class="signup">Please fill in this form to create an account.</p>
+          <hr />
+          <label style="color: blackgre;" for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required />
+
+          <label style="color: black;" for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            required
+          />
+
+          <label style="color: black;" for="psw-repeat"
+            ><b>Repeat Password</b></label
+          >
+          <input
+            type="password"
+            placeholder="Repeat Password"
+            name="psw-repeat"
+            required
+          />
+
+          <label style="color: black;">
+            <input
+              type="checkbox"
+              checked="checked"
+              name="remember"
+              style="margin-bottom:15px"
+            />
+            Remember me
+          </label>
+
+          <p style="color: black;">
+            By creating an account you agree to our
+            <a href="#" style="color:dodgerblue">Terms & Privacy</a>.
+          </p>
+
+          <div class="clearfix">
+            <button
+              type="button"
+              onclick="document.getElementById('id01').style.display='none'"
+              class="cancelbtn"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="signupbtn">
+              <a href="signup.html"></a> Sign Up
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
