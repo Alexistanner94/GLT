@@ -1,12 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Players = sequelize.define("Players", {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING
+    name: DataTypes.STRING,
+    ranking: DataTypes.INTEGER,
+    bracket: DataTypes.STRING,
+    playerID: DataTypes.STRING
   });
   return Players;
 };

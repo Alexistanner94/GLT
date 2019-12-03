@@ -1,10 +1,10 @@
+require("dotenv").config();
 var fetch = require("node-fetch");
 var db = require("../models");
-const Op = db.Sequelize.Op;
 
 db.sequelize.sync({ force: true }).then(function() {
   fetch(
-    "https://api.sportsdata.io/golf/v2/json/PlayerSeasonStats/2019?key=acf621c9c91643c9b0d55c1960551b04"
+    "https://api.sportsdata.io/golf/v2/json/PlayerSeasonStats/2019?key=e9828bf943474a838f59ff47bc3c75e9"
   )
     .then(res => res.json())
     .then(rankings =>
@@ -12,7 +12,8 @@ db.sequelize.sync({ force: true }).then(function() {
         .map(rankingData => {
           const ranking = {
             name: rankingData.Name,
-            ranking: rankingData.WorldGolfRank
+            ranking: rankingData.WorldGolfRank,
+            playerID: rankingData.PlayerID
           };
           if (ranking.ranking < 25) {
             ranking.bracket = "a";
@@ -28,21 +29,14 @@ db.sequelize.sync({ force: true }).then(function() {
           return ranking;
         })
         .filter(function(ranking) {
+          console.log(ranking);
           return (ranking.ranking <= 127) & (ranking.ranking != null);
         })
     )
     .then(function(rankings) {
-      db.Rankings.bulkCreate(rankings).then(function() {
+      db.Players.bulkCreate(rankings).then(function() {
         console.log("Done");
         db.sequelize.close();
       });
     });
-  // .then(function() {
-  //   db.Rankings.update(
-  //     { bracket: "a" },
-  //     { where: { ranking: { [Op.lte]: 15 } } }
-  //   ).then(function() {
-  //     console.log("Done");
-  //   });
-  // });
 });
