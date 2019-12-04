@@ -11,6 +11,10 @@ module.exports = function(app) {
     });
   });
 
+  // delete participant route
+
+  // Prevent duplicate names
+
   // Post Team
   app.post("/api/pick", function(req, res) {
     console.log(req.body);
