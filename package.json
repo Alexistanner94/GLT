@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node scripts/importSeed.js; node scripts/seedTournaments.js; node scripts/seedEarnings.js; node scripts/seedParticipants.js; node scripts/seedPlayerParticipants.js",
+    "start:dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "mysql2": "^2.0.1",
     "node-fetch": "^2.6.0",
     "node-schedule": "^1.3.2",
+    "nodemon": "^2.0.1",
     "sequelize": "^5.21.2",
     "sequelize-cli": "^5.5.1"
   }
