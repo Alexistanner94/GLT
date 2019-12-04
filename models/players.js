@@ -18,7 +18,10 @@ module.exports = function(sequelize, DataTypes) {
 
   Players.associate = function(models) {
     Players.belongsToMany(models.Participants, {
-      through: "Rosters"
+      through: models.PlayerParticipants,
+      sourceKey: "playerID",
+      foreignKey: "playerID",
+      otherKey: "participantID"
     });
 
     Players.hasMany(models.Earnings, {

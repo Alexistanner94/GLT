@@ -13,7 +13,7 @@ db.sequelize.sync().then(function() {
     .then(tournamentIDs =>
       tournamentIDs.forEach(id => {
         fetch(
-          `https://api.sportsdata.io/golf/v2/json/Leaderboard/${id}?key=afc83775bbd2420182e7c78e8bdd6236`
+          `https://api.sportsdata.io/golf/v2/json/Leaderboard/${id}?key=bc9098b0bf324a5888ba3014306569d6`
         )
           .then(res => res.json())
           .then(async function(tournament) {
@@ -28,7 +28,7 @@ db.sequelize.sync().then(function() {
             );
 
             tournament.Players.forEach(function(player) {
-              console.log(dbPlayerIds.includes(player.PlayerID));
+              // console.log(dbPlayerIds.includes(player.PlayerID));
               if (player.Earnings && dbPlayerIds.includes(player.PlayerID)) {
                 db.Earnings.create({
                   playerID: player.PlayerID,
