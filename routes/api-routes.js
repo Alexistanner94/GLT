@@ -18,13 +18,6 @@ module.exports = function(app) {
 
   // Get Earnings
   app.get("/api/earnings", function(req, res) {
-    //   db.Players.findAll({
-    //     include: {
-    //       model: db.Earnings
-    //     }
-    //   }).then(players => console.log(players));
-    // });
-
     db.Participants.findAll({
       include: {
         model: db.Players,
@@ -51,12 +44,27 @@ module.exports = function(app) {
             participantSum += playerSum;
           });
           result.push({
-            participantName: participant.name,
-            totalEarnings: participantSum
+            partName: participant.name,
+            partEarnings: participantSum
           });
         });
         return result;
       })
-      .then(result => res.json(result));
+      .then(function(result) {
+        result.sort(function(a, b) {
+          var keyA = new Date(a.totalEarnings),
+            keyB = new Date(b.totalEarnings);
+          if (keyA > keyB) return -1;
+          if (keyA < keyB) return 1;
+          return 0;
+        });
+        return result;
+      })
+      .then(function(results) {
+        results.forEach(function(result, i) {
+          result.partRanking = i + 1;
+        });
+        res.json(results);
+      });
   });
 };
