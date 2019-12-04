@@ -42,9 +42,13 @@ app.use(express.static("public"));
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+// db.sequelize.sync().then(function() {
+//   app.listen(PORT, function() {
+//     console.log("App listening on PORT " + PORT);
+//   });
+// });
+
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
 });
 >>>>>>> d096cbab8416fd15cd3f64e688faef8451bda11d
