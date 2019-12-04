@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="./css/style.css" />
     <title>Sign Up</title>
   </head>
@@ -17,16 +18,17 @@
           <h1 class="signup">Sign Up</h1>
           <p class="signup">Please fill in this form to create an account.</p>
           <hr />
-          <label style="color: blackgre;" for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required />
-
-          <label style="color: black;" for="psw"><b>Password</b></label>
+          <label style="color: blackgre;" for="Name"><b>Name</b></label>
           <input
-            type="password"
-            placeholder="Enter Password"
-            name="psw"
+            type="text"
+            placeholder="Enter Name"
+            name="Name"
+            id="nameInput"
             required
           />
+
+          <label style="color: black;" for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" />
 
           <label style="color: black;" for="psw-repeat"
             ><b>Repeat Password</b></label
@@ -35,7 +37,6 @@
             type="password"
             placeholder="Repeat Password"
             name="psw-repeat"
-            required
           />
 
           <label style="color: black;">
@@ -61,7 +62,7 @@
             >
               Cancel
             </button>
-            <button type="submit" class="signupbtn">
+            <button id="submit" type="submit" class="signupbtn">
               <a href="signup.html"></a> Sign Up
             </button>
           </div>
@@ -69,4 +70,18 @@
       </form>
     </div>
   </body>
+  <script>
+    $("#submit").on("click", function(e) {
+      e.preventDefault();
+      var name = $("#nameInput").val();
+
+      var participantData = {
+        name: name
+      };
+
+      $.post("api/participants", participantData).then(function() {
+        console.log("Success");
+      });
+    });
+  </script>
 </html>
