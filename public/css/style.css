@@ -275,6 +275,7 @@ body#pa {
     padding: 0.375rem 0.2rem;
 }
 
+<<<<<<< HEAD
 .partActionHeader {
     text-align: center;
 }
@@ -282,3 +283,10 @@ body#pa {
 
 /* End of participant add/delete page code
 ---------------------------------------------- */
+=======
+/*about me pg*/
+.bkgrndgreen{
+  background-image: url("../images/backgroundgreen.jpg");
+  background-size: cover;
+}
+>>>>>>> 1f58396c179d8d2d447c17f3addb193b1d966385
