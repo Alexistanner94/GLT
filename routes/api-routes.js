@@ -4,15 +4,44 @@ var db = require("../models");
 module.exports = function(app) {
   // Post Participants
   app.post("/api/participants", function(req, res) {
-    db.Participants.findAll({
-      where: { bracket: "a" },
-      include: [
-        {
-          model: db.Players
-        }
-      ]
-    }).then(players => {
-      res.json(players);
+    db.Participants.create({
+      name: req.body.name
+    }).then(data => {
+      res.json(data);
+    });
+  });
+
+  // Player Route with Bracket
+  app.get("/api/players/:bracket", function(req, res) {
+    db.Players.findAll({
+      where: {
+        bracket: req.params.bracket
+      }
+    }).then(data => {
+      res.json(data);
+    });
+  });
+
+  // delete participant route
+  // app.delete("/api/participants", function(req, res) {
+  //   db.Participants.destroy({
+  //     where: {
+  //       name: req.body.name
+  //     }
+  //   }).then(data => {
+  //     res.json(data);
+  //   });
+  // });
+
+  // Post Team
+  app.post("/api/pick", function(req, res) {
+    console.log(req.body);
+
+    db.PlayerParticipants.create({
+      playerID: req.body.playerID,
+      participantID: parseInt(req.body.participantID)
+    }).then(data => {
+      res.json(data);
     });
   });
 
