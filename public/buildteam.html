@@ -6,17 +6,13 @@ Drag & Drop
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://code.jquery.com/jquery.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -33,7 +29,7 @@ Drag & Drop
 
   <header>Choose Your Team:</header>
   <body class="bg-image center">
-    <!-- Example single danger button -->
+    <!-- Ranking A -->
     <div class="dropdown">
       <a
         aria-expanded="false"
@@ -43,24 +39,102 @@ Drag & Drop
         class="dropdown-toggle"
         href="#"
       >
-        <span id="selected">Chose option</span><span class="caret"></span
+        <span id="selected-a">Chose option</span><span class="caret"></span
       ></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Option 1</a></li>
-      </ul>
+      <ul class="dropdown-menu" id="a"></ul>
     </div>
 
+    <!-- Ranking B -->
+    <div class="dropdown">
+      <a
+        aria-expanded="false"
+        aria-haspopup="true"
+        role="button"
+        data-toggle="dropdown"
+        class="dropdown-toggle"
+        href="#"
+      >
+        <span id="selected-b">Chose option</span><span class="caret"></span
+      ></a>
+      <ul class="dropdown-menu" id="b"></ul>
+    </div>
+
+    <!-- Ranking C -->
+    <div class="dropdown">
+      <a
+        aria-expanded="false"
+        aria-haspopup="true"
+        role="button"
+        data-toggle="dropdown"
+        class="dropdown-toggle"
+        href="#"
+      >
+        <span id="selected-c">Chose option</span><span class="caret"></span
+      ></a>
+      <ul class="dropdown-menu" id="c"></ul>
+    </div>
+
+    <!-- Ranking D -->
+    <div class="dropdown">
+      <a
+        aria-expanded="false"
+        aria-haspopup="true"
+        role="button"
+        data-toggle="dropdown"
+        class="dropdown-toggle"
+        href="#"
+      >
+        <span id="selected-d">Chose option</span><span class="caret"></span
+      ></a>
+      <ul class="dropdown-menu" id="d"></ul>
+    </div>
+
+    <!-- Ranking E -->
+    <div class="dropdown">
+      <a
+        aria-expanded="false"
+        aria-haspopup="true"
+        role="button"
+        data-toggle="dropdown"
+        class="dropdown-toggle"
+        href="#"
+      >
+        <span id="selected-e">Chose option</span><span class="caret"></span
+      ></a>
+      <ul class="dropdown-menu" id="e"></ul>
+    </div>
+
+    <button type="button" class="btn btn-primary" id="submit">Submit</button>
+
     <script>
-      $(".dropdown-menu a").click(function() {
-        $("#selected").text($(this).text());
+      // GET request to /api/players/:ranking
+      var rankings = ["a", "b", "c", "d", "e"];
+
+      rankings.forEach(function(ranking) {
+        $.get(`/api/players/${ranking}`).then(function(players) {
+          players.forEach(player => {
+            let liTag = $(`<li data-ID=${player.playerID}>`).html(
+              `<a href="#">${player.name}</a>`
+            );
+            liTag.on("click", function() {
+              $(`#selected-${ranking}`).text($(this).text());
+              $(`#selected-${ranking}`).attr("data-ID", $(this).data("id"));
+            });
+            $(`#${ranking}`).append(liTag);
+          });
+        });
       });
 
-      // GET request to /api/players/:ranking
-      // Loop through players and create <li><a></a></li>
-
       // On submit
-      // Get all selected players
-      // Post selected players to playersParticipants table
+      $("#submit").on("click", function() {
+        rankings.forEach(function(ranking) {
+          console.log($(`#selected-${ranking}`).text());
+          console.log($(`#selected-${ranking}`).data("id"));
+        });
+
+        // Get all selected players
+        // Post selected players to playersParticipants table
+      });
     </script>
   </body>
 </html>
