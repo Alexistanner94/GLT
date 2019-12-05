@@ -13,7 +13,7 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/leaderboard.html"));
     });
 
-    app.get("/leaderboard", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/partadmin.html"));
+    app.get("/admin", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/admin.html"));
     });
 };
