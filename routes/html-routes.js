@@ -12,4 +12,16 @@ module.exports = function(app) {
   app.get("/leaderboard", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/leaderboard.html"));
   });
+
+  app.get("/partadmin", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/partadmin.html"));
+  });
+
+  app.get("/about", function(req, res){
+    res.sendFile(path.join(__dirname, "../public/about.html"));
+  });
+
+  app.get("/signup", function(req, res){
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
+  });
 };
