@@ -1,3 +1,5 @@
+Drag & Drop
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,111 +15,48 @@
     <link rel="stylesheet" href="./css/style.css" />
     <title>Choose Your Players</title>
   </head>
-  <body>
-    <div class="bg-image">
+
+  <header>Choose Your Team:</header>
+  <body class="bg-image center">
+    <!-- <div class="bg-image">
       <img src="./images/golf2.png" alt="" class="center" />
-    </div>
+    </div> -->
 
-    <div class="bg-text" class="dropbox-options">
-      <div class="dropdown">
-        <a
-          class="btn btn-secondary dropdown-toggle"
-          href="#"
-          role="button"
-          id="dropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
+    <div class="drag-zone" class="dropbox-options">
+      <div class="parent">
+        <span
+          id="draggableSpan"
+          draggable="true"
+          ondragstart="onDragStart(event);"
         >
-          Dropdown link
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <a
-          class="btn btn-secondary dropdown-toggle"
-          href="#"
-          role="button"
-          id="dropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Dropdown link
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <a
-          class="btn btn-secondary dropdown-toggle"
-          href="#"
-          role="button"
-          id="dropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Dropdown link
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <a
-          class="btn btn-secondary dropdown-toggle"
-          href="#"
-          role="button"
-          id="dropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Dropdown link
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <a
-          class="btn btn-secondary dropdown-toggle"
-          href="#"
-          role="button"
-          id="dropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Dropdown link
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+          draggable
+        </span>
       </div>
     </div>
+    <div class="drop-zone">
+      <span ondragover="onDragOver(event);" ondrop="onDrop(event);">
+        dropzone
+      </span>
+    </div>
+    <script>
+      function onDragStart(event) {
+        event.dataTransfer.setData("text/plain", event.target.id);
+
+        event.currentTarget.style.backgroundColor = "green";
+      }
+      function onDragOver(event) {
+        event.preventDefault();
+      }
+      function onDrop(event) {
+        const id = event.dataTransfer.getData("text");
+
+        const draggableElement = document.getElementById(id);
+        const dropzone = event.target;
+
+        dropzone.appendChild(draggableElement);
+
+        event.dataTransfer.clearData();
+      }
+    </script>
   </body>
 </html>

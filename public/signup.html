@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://code.jquery.com/jquery.js"></script>
     <title>Sign Up</title>
   </head>
   <body>
@@ -17,8 +18,15 @@
           <h1 class="signup">Sign Up</h1>
           <p class="signup">Please fill in this form to create an account.</p>
           <hr />
-          <label style="color: blackgregit;" for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required />
+          <label style="color: blackgregit;" for="username"
+            ><b>Username</b></label
+          >
+          <input id="nameInput"
+            type="text"
+            placeholder="Enter Username"
+            name="username"
+            required
+          />
 
           <label style="color: black;" for="psw"><b>Password</b></label>
           <input
@@ -54,17 +62,34 @@
           </p>
 
           <div class="clearfix">
-            <button>
+            <button
+              a
+              href="./index.html"
+              type="button"
+              onclick="document.getElementById('id01').style.display='none'"
+              class="cancelbtn"
+            >
               Cancel
             </button>
             <a href="./buildteam.html">
-              <button type="submit" class="signupbtn">
+              <button type="submit" class="signupbtn" id="submit" >
                 Sign Up
               </button>
             </a>
           </div>
         </div>
       </form>
-    </div>
+      <script>
+          $("#submit").on("click", function(e) {
+            e.preventDefault();
+            var name = $("#nameInput").val();
+            var participantData = {
+              name: name
+            };
+            $.post("api/participants", participantData).then(function() {
+              console.log("Success");
+            });
+          });
+        </script>
   </body>
 </html>

@@ -1,34 +1,13 @@
 .bg-image {
   height: 100%;
+  background-position: center;
   background-size: cover;
-  background-image: url("../images/golf2.png");
-}
-
-header {
-  color: white;
-  background-color: transparent;
 }
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-}
-.drag-zone {
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
-  color: white;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(-8%, -50%);
-  z-index: 2;
-  width: 40%;
-  padding: 145px;
-  text-align: center;
-  height: auto;
 }
 .bg-text {
   background-color: rgb(0, 0, 0); /* Fallback color */
@@ -38,31 +17,14 @@ header {
   border: 3px solid #f1f1f1;
   position: absolute;
   top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
   width: 60%;
-  padding: 1px;
-  text-align: centerx;
-  height: 70%;
-}
-.drop-zone {
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
-  color: white;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-8%, -50%);
-  z-index: 2;
-  width: 40%;
-  padding: 145px;
-  text-align: right;
+  padding: 20px;
+  text-align: center;
   height: auto;
 }
-
 input[type="email"],
 input[type="password"] {
   width: 72%;
@@ -109,7 +71,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 50%;
+  width: 100%;
   opacity: 0.9;
 }
 
