@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://code.jquery.com/jquery.js"></script>
     <title>Sign Up</title>
@@ -18,6 +19,7 @@
           <h1 class="signup">Sign Up</h1>
           <p class="signup">Please fill in this form to create an account.</p>
           <hr />
+<<<<<<< HEAD
           <label style="color: blackgregit;" for="username"
             ><b>Username</b></label
           >
@@ -29,12 +31,19 @@
           />
 
           <label style="color: black;" for="psw"><b>Password</b></label>
+=======
+          <label style="color: blackgre;" for="Name"><b>Name</b></label>
+>>>>>>> d626d2e12b5c261ed933f4618d66ee6aa298f443
           <input
-            type="password"
-            placeholder="Enter Password"
-            name="psw"
+            type="text"
+            placeholder="Enter Name"
+            name="Name"
+            id="nameInput"
             required
           />
+
+          <label style="color: black;" for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" />
 
           <label style="color: black;" for="psw-repeat"
             ><b>Repeat Password</b></label
@@ -43,7 +52,6 @@
             type="password"
             placeholder="Repeat Password"
             name="psw-repeat"
-            required
           />
 
           <label style="color: black;">
