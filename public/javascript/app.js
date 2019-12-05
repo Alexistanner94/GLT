@@ -1,37 +1,15 @@
 $(document).ready(function() {
 
-    // $(document).on("click", "#lbButton", lbSlideDown);
-
-    // function lbSlideDown() {
-    //     $(".table").slideDown("slow");
-    //     console.log("slide down feature")
-    // }
-
-    // lbSlideDown();
-
-    // $("#product-list").show(display);
-    // $("#product-list").slideDown(4000);
+    /* ----------------------------------------------
+    Beginning of leaderboard page code */
 
     var participantList = $(".leaderboard-container tbody");
     var leaderboardContainer = $(".leaderboard-container");
 
-    let data = [
-        { partRanking: 1, partName: "Name1", partEarnings: 3000000 },
-        { partRanking: 2, partName: "Name2", partEarnings: 2000000 },
-        { partRanking: 3, partName: "Name3", partEarnings: 1000000 },
-        { partRanking: 4, partName: "Name4", partEarnings: 900000 },
-        { partRanking: 5, partName: "Name5", partEarnings: 800000 },
-        { partRanking: 6, partName: "Name6", partEarnings: 700000 },
-        { partRanking: 7, partName: "Name7", partEarnings: 600000 },
-        { partRanking: 8, partName: "Name8", partEarnings: 500000 },
-        { partRanking: 9, partName: "Name9", partEarnings: 400000 },
-        { partRanking: 10, partName: "Name10", partEarnings: 300000 }
-    ]
+    getParticipants();
 
-    getParticipants(data);
-
-    // Function for creating a new list row for products
-    function createProductRow(data) {
+    // Function for creating a new list row for participants
+    function createPartRow(data) {
 
         console.log(data);
         var newTr = $("<tr>");
@@ -46,27 +24,119 @@ $(document).ready(function() {
         return newTr;
     }
 
-    // Function for retrieving products and getting them ready to be rendered to the page
-    function getParticipants(data) {
-        // $.get("/api/earnings", function(data) {
-
+    // Function for retrieving participants and getting them ready to be rendered to the page
+    function getParticipants() {
         var rowsToAdd = [];
-        for (var i = 0; i < data.length; i++) {
-            rowsToAdd.push(createProductRow(data[i]));
-        }
-        renderProductList(rowsToAdd);
+        $.get("/api/earnings", function(data) {
+            for (var i = 0; i < data.length; i++) {
+                rowsToAdd.push(createPartRow(data[i]));
+            }
+            renderPartList(rowsToAdd);
+        });
+        console.log(rowsToAdd);
     };
 
-    // function for rendering the list of products to the page
-    function renderProductList(rows) {
+    // function for rendering the list of participants to the page
+    function renderPartList(rows) {
         participantList.children().not(":last").remove();
         leaderboardContainer.children(".alert").remove();
         if (rows.length) {
             console.log(rows);
             participantList.prepend(rows);
         } else {
-            renderEmpty();
+            console.log("no records to show");
         }
     }
+
+    /* End of leaderboard page code
+    ---------------------------------------------- */
+
+    /* ----------------------------------------------
+    Beginning of participant add/delete page code */
+
+    var participantList2 = $(".partAdmin-container tbody");
+    var partAdminContainer = $(".partAdmin-container");
+    var nameInput = $("#new-participant-name")
+
+    $(document).on("click", ".delete-participant", handleDeleteParticipantPress);
+    $(document).on("submit", "#add-participant-form", handleParticipantFormSubmit);
+
+    getParticipants2();
+
+    // A function to handle what happens when the form is submitted to create a new Participant
+
+    function handleParticipantFormSubmit(event) {
+        event.preventDefault();
+        // Don't do anything if the name field hasn't been filled out
+        if (!nameInput.val().trim().trim()) {
+            return;
+        }
+        // Calling the upsertParticipant function and passing in the value of the name input
+        upsertParticipant({
+            name: nameInput
+                .val()
+                .trim()
+        });
+        console.log(nameInput);
+    }
+
+    // A function for creating a participant. Calls getParticipants2 upon completion
+    function upsertParticipant(participantData) {
+        // $.post("/api/participants", participantData)
+        // .then(getParticipants2);
+    }
+
+    // Function for creating a new list row for participants
+    function createPartRow2(data) {
+
+        console.log(data);
+        var newTr = $("<tr>");
+        newTr.data("participant", data);
+        newTr.append("<td class='align-middle'>" + data.partRanking + "</td>");
+        newTr.append("<td class='align-middle'>" + data.partName + "</td>");
+        newTr.append("<td> <button class='delete-participant btn btn-danger' >Delete</button></td>");
+
+        return newTr;
+    }
+
+    // Function for retrieving participants and getting them ready to be rendered to the page
+    function getParticipants2() {
+        var rowsToAdd2 = [];
+        $.get("/api/earnings", function(data) {
+            for (var i = 0; i < data.length; i++) {
+                rowsToAdd2.push(createPartRow2(data[i]));
+            }
+            renderPartList2(rowsToAdd2);
+        });
+        console.log(rowsToAdd2);
+    };
+
+    // function for rendering the list of participants to the page
+    function renderPartList2(rows) {
+        participantList2.children().not(":last").remove();
+        partAdminContainer.children(".alert").remove();
+        if (rows.length) {
+            console.log(rows);
+            participantList2.prepend(rows);
+        } else {
+            console.log("no records to show");
+        }
+    }
+
+    function handleDeleteParticipantPress() {
+        let listItemData = $(this).parent("td").parent("tr").data("participant");
+        console.log(listItemData);
+        //edit lines below
+        let id = listItemData.partRanking;
+        console.log("id of deleted player: " + id);
+        // $.ajax({
+        //     method: "DELETE",
+        //     url: "/api/participants/" + id
+        //   })
+        // .then(getParticipants2);
+    }
+
+    /* End of participant add/delete page code
+    ---------------------------------------------- */
 
 });
