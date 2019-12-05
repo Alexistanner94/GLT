@@ -11,8 +11,18 @@ module.exports = function(app) {
     });
   });
 
-  // delete participant route
+  // Player Route with Bracket
+  app.get("/api/players/:bracket", function(req, res) {
+    db.Players.findAll({
+      where: {
+        bracket: req.params.bracket
+      }
+    }).then(data => {
+      res.json(data);
+    });
+  });
 
+  // delete participant route
   // app.delete("/api/participants", function(req, res) {
   //   db.Participants.destroy({
   //     where: {
@@ -22,7 +32,6 @@ module.exports = function(app) {
   //     res.json(data);
   //   });
   // });
-  // Prevent duplicate names
 
   // Post Team
   app.post("/api/pick", function(req, res) {
