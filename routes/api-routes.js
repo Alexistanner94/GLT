@@ -13,6 +13,15 @@ module.exports = function(app) {
 
   // delete participant route
 
+  // app.delete("/api/participants", function(req, res) {
+  //   db.Participants.destroy({
+  //     where: {
+  //       name: req.body.name
+  //     }
+  //   }).then(data => {
+  //     res.json(data);
+  //   });
+  // });
   // Prevent duplicate names
 
   // Post Team

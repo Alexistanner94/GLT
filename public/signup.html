@@ -70,18 +70,4 @@
       </form>
     </div>
   </body>
-  <script>
-    $("#submit").on("click", function(e) {
-      e.preventDefault();
-      var name = $("#nameInput").val();
-
-      var participantData = {
-        name: name
-      };
-
-      $.post("api/participants", participantData).then(function() {
-        console.log("Success");
-      });
-    });
-  </script>
 </html>
