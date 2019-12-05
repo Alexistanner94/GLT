@@ -1,7 +1,18 @@
 .bg-image {
+<<<<<<< HEAD
+  height: 100%;
+  background-size: cover;
+  background-image: url("../images/golf2.png");
+}
+
+header {
+  color: white;
+  background-color: transparent;
+=======
     height: 100%;
     background-position: center;
     background-size: cover;
+>>>>>>> 8f455428946da8b6fced696931e8d3d7f7676e15
 }
 
 .center {
@@ -10,6 +21,55 @@
     margin-right: auto;
     width: 100%;
 }
+<<<<<<< HEAD
+.drag-zone {
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(-8%, -50%);
+  z-index: 2;
+  width: 40%;
+  padding: 145px;
+  text-align: center;
+  height: auto;
+}
+.bg-text {
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  z-index: 2;
+  width: 60%;
+  padding: 1px;
+  text-align: centerx;
+  height: 70%;
+}
+.drop-zone {
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-8%, -50%);
+  z-index: 2;
+  width: 40%;
+  padding: 145px;
+  text-align: right;
+  height: auto;
+=======
 
 .bg-text {
     background-color: rgb(0, 0, 0);
@@ -28,6 +88,7 @@
     padding: 20px;
     text-align: center;
     height: auto;
+>>>>>>> 8f455428946da8b6fced696931e8d3d7f7676e15
 }
 
 input[type="email"],
@@ -78,6 +139,16 @@ input[type="password"]:focus {
 /* Set a style for all buttons */
 
 button {
+<<<<<<< HEAD
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+=======
     background-color: #4caf50;
     color: white;
     padding: 14px 20px;
@@ -86,6 +157,7 @@ button {
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
+>>>>>>> 8f455428946da8b6fced696931e8d3d7f7676e15
 }
 
 button:hover {

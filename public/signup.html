@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://code.jquery.com/jquery.js"></script>
     <title>Sign Up</title>
   </head>
   <body>
@@ -18,7 +19,21 @@
           <h1 class="signup">Sign Up</h1>
           <p class="signup">Please fill in this form to create an account.</p>
           <hr />
+<<<<<<< HEAD
+          <label style="color: blackgregit;" for="username"
+            ><b>Username</b></label
+          >
+          <input id="nameInput"
+            type="text"
+            placeholder="Enter Username"
+            name="username"
+            required
+          />
+
+          <label style="color: black;" for="psw"><b>Password</b></label>
+=======
           <label style="color: blackgre;" for="Name"><b>Name</b></label>
+>>>>>>> d626d2e12b5c261ed933f4618d66ee6aa298f443
           <input
             type="text"
             placeholder="Enter Name"
@@ -56,18 +71,33 @@
 
           <div class="clearfix">
             <button
+              a
+              href="./index.html"
               type="button"
               onclick="document.getElementById('id01').style.display='none'"
               class="cancelbtn"
             >
               Cancel
             </button>
-            <button id="submit" type="submit" class="signupbtn">
-              <a href="signup.html"></a> Sign Up
-            </button>
+            <a href="./buildteam.html">
+              <button type="submit" class="signupbtn" id="submit" >
+                Sign Up
+              </button>
+            </a>
           </div>
         </div>
       </form>
-    </div>
+      <script>
+          $("#submit").on("click", function(e) {
+            e.preventDefault();
+            var name = $("#nameInput").val();
+            var participantData = {
+              name: name
+            };
+            $.post("api/participants", participantData).then(function() {
+              console.log("Success");
+            });
+          });
+        </script>
   </body>
 </html>
