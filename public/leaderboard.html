@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Leaderboard</title>
-  </head>
-  <body></body>
-</html>
 
-<div class="bg-image">
-  <img src="./images/golf4.png" alt="" class="center" />
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Leaderboard</title>
+
+    <!-- Bootstrap link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- External stylesheet link-->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body id="lb">
+
+    <div class="container w-50">
+        <div class="leaderboard-container">
+            <h2>Leaderboard</h2>
+            <table class="table table-striped" id="leaderboard-list">
+                <div class="row">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 15%">Ranking</th>
+                            <th scope="col" style="width: 60%" class="priceHeader">Name</th>
+                            <th scope="col" style="width: 25%" class="partEarningsHeader">Total Earnings</th>
+                        </tr>
+                    </thead>
+                </div>
+                <div class="row">
+                    <tbody>
+                    </tbody>
+                </div>
+            </table>
+        </div>
+    </div>
+
+    <!-- jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- External javascript link-->
+    <script src="javascript/app.js "></script>
+
+</body>
+
+</html>
