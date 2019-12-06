@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Participation Administration</title>
+    <title>Participant Administration</title>
 
     <!-- Bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -62,34 +62,37 @@
 
 
     <div class="container">
+
         <div class="row">
-            <div class="col-md-7 offset-md-2">
+            <div class="col-md-8 offset-md-2">
                 <div class="partAdmin-container">
-                    <h2>Participation Administration</h2>
-                    <table class="table table-striped" id="partAdmin-list">
-                        <div class="row">
-                            <thead>
-                                <tr>
-                                    <th scope="col" style="width: 10%">ID</th>
-                                    <th scope="col" style="width: 70%" class="priceHeader">Name</th>
-                                    <th scope="col" style="width: 15%" class="partActionHeader">Action</th>
-                                </tr>
-                            </thead>
-                        </div>
-                        <div class="row">
-                            <tbody>
-                                <tr id="form-row">
-                                    <form id="add-participant-form">
-                                        <td colspan="2">
-                                            <input placeholder="Enter a name" id="new-participant-name" type="text" />
-                                        </td>
-                                        <td><button type="submit" class="btn btn-success">Add Participant</button>
-                                        </td>
-                                    </form>
-                                </tr>
-                            </tbody>
-                        </div>
-                    </table>
+                    <h2>Participant Administration</h2>
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                        <table class="table table-striped" id="partAdmin-list">
+                            <div class="row">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width: 10%">ID</th>
+                                        <th scope="col" style="width: 70%" class="priceHeader">Name</th>
+                                        <th scope="col" style="width: 15%" class="partActionHeader">Action</th>
+                                    </tr>
+                                </thead>
+                            </div>
+                            <div class="row">
+                                <tbody>
+                                    <tr id="form-row">
+                                        <form id="add-participant-form">
+                                            <td colspan="2">
+                                                <input placeholder="Enter a name" id="new-participant-name" type="text" />
+                                            </td>
+                                            <td><button type="submit" class="btn btn-success">Add Participant</button>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                </tbody>
+                            </div>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

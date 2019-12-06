@@ -6,6 +6,8 @@ $(document).ready(function() {
     var participantList = $(".leaderboard-container tbody");
     var leaderboardContainer = $(".leaderboard-container");
 
+
+
     getParticipants();
 
     // Function for creating a new list row for participants
@@ -43,6 +45,9 @@ $(document).ready(function() {
         if (rows.length) {
             console.log(rows);
             participantList.prepend(rows);
+            $('tr:first-child td:first-child').append('<img class="golden-ball" src="./images/golden-ball.jpeg"/>')
+            $('tr:nth-child(2) td:first-child').append('<img class="silver-medal" src="./images/silver-medal.png"/>')
+            $('tr:nth-child(3) td:first-child').append('<img class="bronze-medal" src="./images/bronze-medal.png"/>')
         } else {
             console.log("no records to show");
         }
@@ -77,13 +82,13 @@ $(document).ready(function() {
                 .val()
                 .trim()
         });
-        console.log(nameInput);
+        console.log(name);
     }
 
     // A function for creating a participant. Calls getParticipants2 upon completion
     function upsertParticipant(participantData) {
-        // $.post("/api/participants", participantData)
-        // .then(getParticipants2);
+        $.post("/api/participants", participantData)
+            .then(getParticipants2);
     }
 
     // Function for creating a new list row for participants
@@ -92,9 +97,9 @@ $(document).ready(function() {
         console.log(data);
         var newTr = $("<tr>");
         newTr.data("participant", data);
-        newTr.append("<td class='align-middle'>" + data.partRanking + "</td>");
-        newTr.append("<td class='align-middle'>" + data.partName + "</td>");
-        newTr.append("<td> <button class='delete-participant btn btn-danger' >Delete</button></td>");
+        newTr.append("<td class='align-middle'>" + data.participantID + "</td>");
+        newTr.append("<td class='align-middle'>" + data.name + "</td>");
+        newTr.append("<td class> <button class='delete-participant btn btn-danger' >Delete</button></td>");
 
         return newTr;
     }
@@ -102,7 +107,7 @@ $(document).ready(function() {
     // Function for retrieving participants and getting them ready to be rendered to the page
     function getParticipants2() {
         var rowsToAdd2 = [];
-        $.get("/api/earnings", function(data) {
+        $.get("/api/participants", function(data) {
             for (var i = 0; i < data.length; i++) {
                 rowsToAdd2.push(createPartRow2(data[i]));
             }
@@ -126,14 +131,13 @@ $(document).ready(function() {
     function handleDeleteParticipantPress() {
         let listItemData = $(this).parent("td").parent("tr").data("participant");
         console.log(listItemData);
-        //edit lines below
-        let id = listItemData.partRanking;
+        let id = listItemData.participantID;
         console.log("id of deleted player: " + id);
-        // $.ajax({
-        //     method: "DELETE",
-        //     url: "/api/participants/" + id
-        //   })
-        // .then(getParticipants2);
+        $.ajax({
+                method: "DELETE",
+                url: "/api/participants/" + id
+            })
+            .then(getParticipants2);
     }
 
     /* End of participant add/delete page code
