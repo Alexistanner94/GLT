@@ -40,9 +40,9 @@ module.exports = function(app) {
   // Get Earnings
   app.get("/api/earnings", function(req, res) {
     // if the last reload is a while ago
-    seedTournaments().then(function() {
-      seedEarnings();
-    });
+    // seedTournaments().then(function() {
+    //   seedEarnings();
+    // });
 
     db.Participants.findAll({
       include: {

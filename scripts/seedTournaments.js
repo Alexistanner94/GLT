@@ -7,7 +7,7 @@ var fetch = require("node-fetch");
 // Dont add a tournament if it is not over
 
 module.exports = function() {
-  fetch(
+  return fetch(
     `https://api.sportsdata.io/golf/v2/json/Tournaments/2020?key=${process.env.API_KEY}`
   )
     .then(res => res.json())

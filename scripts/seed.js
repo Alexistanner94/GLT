@@ -10,16 +10,16 @@ var db = require("../models");
 db.sequelize
   .sync({ force: true })
   .then(function() {
-    return seedPlayers();
-  })
-  .then(function() {
-    return seedTournaments();
-  })
-  .then(function() {
     return seedParticipants();
   })
   .then(function() {
+    return seedPlayers();
+  })
+  .then(function() {
     return seedPlayerParticpants();
+  })
+  .then(function() {
+    return seedTournaments();
   })
   .then(function() {
     return seedEarnings();
