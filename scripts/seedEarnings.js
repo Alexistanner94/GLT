@@ -1,46 +1,43 @@
 require("dotenv").config();
 var db = require("../models");
 var fetch = require("node-fetch");
-// Call Schedule By Season 2020
-// Fill TournamentsDB
-db.sequelize.sync().then(function() {
-  db.Tournaments.findAll({
+
+module.exports = function() {
+  return db.Tournaments.findAll({
     attributes: ["tournamentID"]
   })
     .then(tournamentIDs =>
       tournamentIDs.map(tournament => tournament.dataValues.tournamentID)
     )
-    .then(tournamentIDs =>
-      tournamentIDs.forEach(id => {
-        fetch(
-          `https://api.sportsdata.io/golf/v2/json/Leaderboard/${id}?key=bc9098b0bf324a5888ba3014306569d6`
+    .then(tournamentIDs => {
+      const apiPromises = tournamentIDs.map(id => {
+        return fetch(
+          `https://api.sportsdata.io/golf/v2/json/Leaderboard/${id}?key=${process.env.API_KEY}`
         )
           .then(res => res.json())
           .then(async function(tournament) {
             const dbPlayers = await db.Players.findAll({
               attributes: ["playerID"]
             });
+
             const dbPlayerIds = dbPlayers.map(p =>
               parseInt(p.dataValues.playerID)
             );
-            const apiPlayerIds = tournament.Players.map(p =>
-              parseInt(p.PlayerID)
-            );
 
-            tournament.Players.forEach(function(player) {
-              // console.log(dbPlayerIds.includes(player.PlayerID));
-              if (player.Earnings && dbPlayerIds.includes(player.PlayerID)) {
-                db.Earnings.create({
-                  playerID: player.PlayerID,
-                  tournamentID: id,
-                  earnings: player.Earnings
-                });
-              }
+            const createEarningsPromises = tournament.Players.filter(
+              player => player.Earnings && dbPlayerIds.includes(player.PlayerID)
+            ).map(function(player) {
+              return db.Earnings.create({
+                playerID: player.PlayerID,
+                tournamentID: id,
+                earnings: player.Earnings
+              });
             });
-          })
-          .catch(function() {
-            // console.log("error");
+
+            return Promise.all(createEarningsPromises);
           });
-      })
-    );
-});
+      });
+
+      return Promise.all(apiPromises);
+    });
+};

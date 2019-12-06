@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node scripts/importSeed.js; node scripts/seedTournaments.js; node scripts/seedEarnings.js; node scripts/seedParticipants.js; node scripts/seedPlayerParticipants.js",
+    "seed": "node scripts/seed.js",
     "start:dev": "nodemon server.js"
   },
   "repository": {

@@ -1,12 +1,14 @@
 require("dotenv").config();
 var db = require("../models");
 var fetch = require("node-fetch");
-// Call Schedule By Season 2020
-// Fill TournamentsDB
 
-db.sequelize.sync().then(function() {
-  fetch(
-    "https://api.sportsdata.io/golf/v2/json/Tournaments/2020?key=bc9098b0bf324a5888ba3014306569d6"
+// Add all tournaments for the 2020 season to the database
+// Export this as a function to serverjs, so that new tournaments will be added
+// Dont add a tournament if it is not over
+
+module.exports = function() {
+  return fetch(
+    `https://api.sportsdata.io/golf/v2/json/Tournaments/2020?key=${process.env.API_KEY}`
   )
     .then(res => res.json())
     .then(tournaments =>
@@ -23,9 +25,6 @@ db.sequelize.sync().then(function() {
       })
     )
     .then(function(tournaments) {
-      db.Tournaments.bulkCreate(tournaments).then(function() {
-        console.log("Done");
-        db.sequelize.close();
-      });
+      return db.Tournaments.bulkCreate(tournaments);
     });
-});
+};

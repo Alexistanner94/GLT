@@ -1,6 +1,9 @@
 var path = require("path");
 var db = require("../models");
 
+var seedTournaments = require("../scripts/seedTournaments.js");
+var seedEarnings = require("../scripts/seedEarnings.js");
+
 module.exports = function(app) {
     // Get Participants
     app.get("/api/participants", function(req, res) {
