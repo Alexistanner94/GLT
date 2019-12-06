@@ -70,8 +70,8 @@ module.exports = function(app) {
       })
       .then(function(result) {
         result.sort(function(a, b) {
-          var keyA = new Date(a.totalEarnings),
-            keyB = new Date(b.totalEarnings);
+          var keyA = a.partEarnings,
+            keyB = b.partEarnings;
           if (keyA > keyB) return -1;
           if (keyA < keyB) return 1;
           return 0;

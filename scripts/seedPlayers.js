@@ -4,7 +4,7 @@ var db = require("../models");
 
 db.sequelize.sync({ force: true }).then(function() {
   fetch(
-    "https://api.sportsdata.io/golf/v2/json/PlayerSeasonStats/2019?key=bc9098b0bf324a5888ba3014306569d6"
+    `https://api.sportsdata.io/golf/v2/json/PlayerSeasonStats/2019?key=${process.env.API_KEY}`
   )
     .then(res => res.json())
     .then(rankings =>
