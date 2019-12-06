@@ -1,7 +1,12 @@
 .bg-image {
     height: 100%;
-    background-position: center;
     background-size: cover;
+    background-image: url("../images/golf2.png");
+}
+
+header {
+    color: white;
+    background-color: transparent;
 }
 
 .center {
@@ -9,6 +14,25 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+}
+
+.drag-zone {
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(-8%, -50%);
+    z-index: 2;
+    width: 40%;
+    padding: 145px;
+    text-align: center;
+    height: auto;
 }
 
 .bg-text {
@@ -21,17 +45,35 @@
     border: 3px solid #f1f1f1;
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    right: 50%;
+    transform: translate(50%, -50%);
     z-index: 2;
     width: 60%;
-    padding: 20px;
-    text-align: center;
+    padding: 1px;
+    text-align: centerx;
+    height: 70%;
+}
+
+.drop-zone {
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-8%, -50%);
+    z-index: 2;
+    width: 40%;
+    padding: 145px;
+    text-align: right;
     height: auto;
 }
 
-input[type="email"],
-input[type="password"] {
+input[type="email"], input[type="password"] {
     width: 72%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -52,11 +94,9 @@ body {
     box-sizing: border-box;
 }
 
-
 /* Full-width input fields */
 
-input[type="text"],
-input[type="password"] {
+input[type="text"], input[type="password"] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -65,15 +105,12 @@ input[type="password"] {
     background: #f1f1f1;
 }
 
-
 /* Add a background color when the inputs get focus */
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="text"]:focus, input[type="password"]:focus {
     background-color: #ddd;
     outline: none;
 }
-
 
 /* Set a style for all buttons */
 
@@ -84,14 +121,13 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
     opacity: 0.9;
 }
 
 button:hover {
     opacity: 1;
 }
-
 
 /* Extra styles for the cancel button */
 
@@ -100,22 +136,18 @@ button:hover {
     background-color: #f44336;
 }
 
-
 /* Float cancel and signup buttons and add an equal width */
 
-.cancelbtn,
-.signupbtn {
+.cancelbtn, .signupbtn {
     float: left;
     width: 50%;
 }
-
 
 /* Add padding to container elements */
 
 .container {
     padding: 16px;
 }
-
 
 /* The Modal (background) */
 
@@ -138,7 +170,6 @@ button:hover {
     padding-top: 50px;
 }
 
-
 /* Modal Content/Box */
 
 .modal-content {
@@ -150,14 +181,12 @@ button:hover {
     /* Could be more or less, depending on screen size */
 }
 
-
 /* Style the horizontal ruler */
 
 hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
 }
-
 
 /* The Close Button (x) */
 
@@ -170,12 +199,10 @@ hr {
     color: #f1f1f1;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
     color: #f44336;
     cursor: pointer;
 }
-
 
 /* Clear floats */
 
@@ -185,16 +212,13 @@ hr {
     display: table;
 }
 
-
 /* Change styles for cancel button and signup button on extra small screens */
 
 @media screen and (max-width: 300px) {
-    .cancelbtn,
-    .signupbtn {
+    .cancelbtn, .signupbtn {
         width: 100%;
     }
 }
-
 
 /* ----------------------------------------------
 Beginning of leaderboard page formatting */
@@ -218,8 +242,7 @@ body#lb {
     padding-right: 40px;
 }
 
-.leaderboard-container .table-striped>tbody>tr:nth-child(2n+1)>td,
-.leaderboard-container .table-striped>tbody>tr:nth-child(2n+1)>th {
+.leaderboard-container .table-striped>tbody>tr:nth-child(2n+1)>td, .leaderboard-container .table-striped>tbody>tr:nth-child(2n+1)>th {
     background-color: rgb(201, 231, 181);
 }
 
@@ -233,10 +256,8 @@ body#lb {
     margin-top: 15px;
 }
 
-
 /* End of leaderboard page formatting
 ---------------------------------------------- */
-
 
 /* ----------------------------------------------
 Beginning of participant add/delete page code */
@@ -250,8 +271,7 @@ body#pa {
     margin-top: 20px;
 }
 
-.partAdmin-container .table-striped>tbody>tr:nth-child(2n+1)>td,
-.partAdmin-container .table-striped>tbody>tr:nth-child(2n+1)>th {
+.partAdmin-container .table-striped>tbody>tr:nth-child(2n+1)>td, .partAdmin-container .table-striped>tbody>tr:nth-child(2n+1)>th {
     background-color: rgb(203, 215, 238);
 }
 
@@ -274,19 +294,3 @@ body#pa {
     margin-top: 10px;
     padding: 0.375rem 0.2rem;
 }
-
-<<<<<<< HEAD
-.partActionHeader {
-    text-align: center;
-}
-
-
-/* End of participant add/delete page code
----------------------------------------------- */
-=======
-/*about me pg*/
-.bkgrndgreen{
-  background-image: url("../images/backgroundgreen.jpg");
-  background-size: cover;
-}
->>>>>>> 1f58396c179d8d2d447c17f3addb193b1d966385
