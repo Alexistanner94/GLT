@@ -22,17 +22,6 @@ module.exports = function(app) {
     });
   });
 
-  // delete participant route
-  // app.delete("/api/participants", function(req, res) {
-  //   db.Participants.destroy({
-  //     where: {
-  //       name: req.body.name
-  //     }
-  //   }).then(data => {
-  //     res.json(data);
-  //   });
-  // });
-
   // Post Team
   app.post("/api/pick", function(req, res) {
     console.log(req.body);
