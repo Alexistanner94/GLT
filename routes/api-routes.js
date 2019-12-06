@@ -22,17 +22,6 @@ module.exports = function(app) {
     });
   });
 
-  // delete participant route
-  // app.delete("/api/participants", function(req, res) {
-  //   db.Participants.destroy({
-  //     where: {
-  //       name: req.body.name
-  //     }
-  //   }).then(data => {
-  //     res.json(data);
-  //   });
-  // });
-
   // Post Team
   app.post("/api/pick", function(req, res) {
     console.log(req.body);
@@ -81,8 +70,8 @@ module.exports = function(app) {
       })
       .then(function(result) {
         result.sort(function(a, b) {
-          var keyA = new Date(a.totalEarnings),
-            keyB = new Date(b.totalEarnings);
+          var keyA = a.partEarnings,
+            keyB = b.partEarnings;
           if (keyA > keyB) return -1;
           if (keyA < keyB) return 1;
           return 0;

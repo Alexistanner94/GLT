@@ -125,13 +125,20 @@
 
       // On submit
       $("#submit").on("click", function() {
+        var participantID = parseInt(localStorage.participantID);
         rankings.forEach(function(ranking) {
-          console.log($(`#selected-${ranking}`).text());
-          console.log($(`#selected-${ranking}`).data("id"));
-        });
+          // var playerName = $(`#selected-${ranking}`).text();
+          var playerID = $(`#selected-${ranking}`).data("id");
+          var pick = {
+            participantID: participantID,
+            playerID: playerID
+          };
+          console.log(pick);
 
-        // Get all selected players
-        // Post selected players to playersParticipants table
+          $.post("/api/pick", pick, function(data) {
+            window.location.href = "/leaderboard";
+          });
+        });
       });
     </script>
   </body>

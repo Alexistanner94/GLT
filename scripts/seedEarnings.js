@@ -1,8 +1,9 @@
 require("dotenv").config();
 var db = require("../models");
 var fetch = require("node-fetch");
-// Call Schedule By Season 2020
-// Fill TournamentsDB
+
+// Calculate the earnings for each player in all tournaments
+// In the Tournaments DB
 db.sequelize.sync().then(function() {
   db.Tournaments.findAll({
     attributes: ["tournamentID"]
@@ -13,7 +14,7 @@ db.sequelize.sync().then(function() {
     .then(tournamentIDs =>
       tournamentIDs.forEach(id => {
         fetch(
-          `https://api.sportsdata.io/golf/v2/json/Leaderboard/${id}?key=bc9098b0bf324a5888ba3014306569d6`
+          `https://api.sportsdata.io/golf/v2/json/Leaderboard/${id}?key=${process.env.API_KEY}`
         )
           .then(res => res.json())
           .then(async function(tournament) {
@@ -23,12 +24,8 @@ db.sequelize.sync().then(function() {
             const dbPlayerIds = dbPlayers.map(p =>
               parseInt(p.dataValues.playerID)
             );
-            const apiPlayerIds = tournament.Players.map(p =>
-              parseInt(p.PlayerID)
-            );
 
             tournament.Players.forEach(function(player) {
-              // console.log(dbPlayerIds.includes(player.PlayerID));
               if (player.Earnings && dbPlayerIds.includes(player.PlayerID)) {
                 db.Earnings.create({
                   playerID: player.PlayerID,
@@ -39,7 +36,7 @@ db.sequelize.sync().then(function() {
             });
           })
           .catch(function() {
-            // console.log("error");
+            console.log("error");
           });
       })
     );
