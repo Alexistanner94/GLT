@@ -1,49 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Leaderboard</title>
 
-    <!-- Bootstrap link -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Leaderboard</title>
 
-    <!-- External stylesheet link-->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+  <!-- Bootstrap link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <body id="lb">
-    <div class="container w-50">
-      <div class="leaderboard-container">
-        <h2>Leaderboard</h2>
-        <table class="table table-striped" id="leaderboard-list">
-          <div class="row">
-            <thead>
-              <tr>
-                <th scope="col" style="width: 15%">Ranking</th>
-                <th scope="col" style="width: 60%" class="priceHeader">Name</th>
-                <th scope="col" style="width: 25%" class="partEarningsHeader">
-                  Total Earnings
-                </th>
-              </tr>
-            </thead>
-          </div>
-          <div class="row">
-            <tbody></tbody>
-          </div>
-        </table>
-      </div>
+  <!-- External stylesheet link-->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<nav class="navbar navbar-light bg-light">
+
+  <a class="navbar-brand" href="/">
+    GLTA
+  </a>
+
+  <div class="d-flex flex-row">
+    <a class="nav-link" href="/index">
+      Login
+    </a>
+    <a class="nav-link" href="/signup">
+      Register
+    </a>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span>
+        <img src="./images/clubbin.jpg" width="30" height="30">
+      </span>
+    </button>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav text-right">
+      <li class="nav-item">
+        <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Leaderboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/buildteam">Build Your Team</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/about">About GTLA</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/admin">Commissioner</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+
+<body id="lb">
+  <div class="container w-50">
+    <div class="leaderboard-container">
+      <h2>Leaderboard</h2>
+      <table class="table table-striped" id="leaderboard-list">
+        <div class="row">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 15%">Ranking</th>
+              <th scope="col" style="width: 60%" class="priceHeader">Name</th>
+              <th scope="col" style="width: 25%" class="partEarningsHeader">
+                Total Earnings
+              </th>
+            </tr>
+          </thead>
+        </div>
+        <div class="row">
+          <tbody></tbody>
+        </div>
+      </table>
     </div>
+  </div>
 
-    <!-- jQuery Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- External javascript link-->
-    <script src="javascript/app.js "></script>
-  </body>
+  <!-- External javascript link-->
+  <script src="javascript/app.js "></script>
+</body>
+
 </html>
