@@ -1,6 +1,9 @@
 var path = require("path");
 var db = require("../models");
 
+var seedTournaments = require("../scripts/seedTournaments.js");
+var seedEarnings = require("../scripts/seedEarnings.js");
+
 module.exports = function(app) {
   // Post Participants
   app.post("/api/participants", function(req, res) {
@@ -36,6 +39,11 @@ module.exports = function(app) {
 
   // Get Earnings
   app.get("/api/earnings", function(req, res) {
+    // if the last reload is a while ago
+    seedTournaments().then(function() {
+      seedEarnings();
+    });
+
     db.Participants.findAll({
       include: {
         model: db.Players,

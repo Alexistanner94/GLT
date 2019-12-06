@@ -2,9 +2,7 @@ require("dotenv").config();
 var db = require("../models");
 var fetch = require("node-fetch");
 
-// Calculate the earnings for each player in all tournaments
-// In the Tournaments DB
-db.sequelize.sync().then(function() {
+module.exports = function() {
   db.Tournaments.findAll({
     attributes: ["tournamentID"]
   })
@@ -40,4 +38,4 @@ db.sequelize.sync().then(function() {
           });
       })
     );
-});
+};
