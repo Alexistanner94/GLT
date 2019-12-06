@@ -17,9 +17,6 @@ var participants = [
   }
 ];
 
-db.sequelize.sync().then(function() {
-  db.Participants.bulkCreate(participants).then(function() {
-    console.log("Done");
-    db.sequelize.close();
-  });
-});
+module.exports = function() {
+  return db.Participants.bulkCreate(participants);
+};
