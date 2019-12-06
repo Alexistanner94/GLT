@@ -125,6 +125,21 @@ button {
     opacity: 0.9;
 }
 
+#submitbutton {
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    opacity: 0.9;
+}
+
+#submitbutton:hover {
+    opacity: 1;
+}
+
 button:hover {
     opacity: 1;
 }

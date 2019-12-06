@@ -61,7 +61,7 @@
       <img src="./images/golf7.png" alt="" class="center" />
     </div>
     <div class="bg-text">
-      <form class="modal-content" action="/action_page.php">
+      <form class="modal-content">
         <div class="container">
           <h1 class="signup">Sign Up</h1>
           <p class="signup">Please fill in this form to create an account.</p>
@@ -82,6 +82,7 @@
             </button>
             <a href="./buildteam.html">
               <button type="submit" class="signupbtn" id="submit">
+                <!-- onclick="location.href='/buildteam';" -->
                 Sign Up
               </button>
             </a>
@@ -89,14 +90,20 @@
         </div>
       </form>
       <script>
-        $("#submit").on("click", function (e) {
-          e.preventDefault();
-          var name = $("#nameInput").val();
-          var participantData = {
-            name: name
-          };
-          $.post("api/participants", participantData).then(function () {
-            console.log("Success");
+          $("#submit").on("click", function(e) {
+            e.preventDefault();
+            var name = $("#nameInput").val();
+
+            localStorage.setItem('username', name);
+
+            var participantData = {
+              name: name
+            };
+            $.post("/api/participants", participantData).then(function(data){
+              // console.log(data);
+              localStorage.setItem('participantID', data.participantID);
+              window.location.href = "/buildteam";
+            });
           });
         });
       </script>
