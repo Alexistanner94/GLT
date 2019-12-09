@@ -1,187 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://code.jquery.com/jquery.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css" />
     <title>Choose Your Players</title>
-  </head>
+</head>
 
-  
-  <body class="bg-image center">
-  
-  <nav class="navbar navbar-light bg-light">
 
-    <a class="navbar-brand" href="/">
+<body class="bg-image center">
+
+    <nav class="navbar navbar-light bg-light">
+
+        <a class="navbar-brand" href="/">
       GLTA
     </a>
 
-    <div class="d-flex flex-row">
-      <a class="nav-link" href="/index">
+        <div class="d-flex flex-row">
+            <a class="nav-link" href="/index">
         Login
       </a>
-      <a class="nav-link" href="/signup">
+            <a class="nav-link" href="/signup">
         Register
       </a>
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span>
           <img src="./images/clubbin.jpg" width="30" height="30">
         </span>
       </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav text-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="/leaderboard">Leaderboard</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Build Your Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About GTLA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Commissioner</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="pick-header-container w-75">
+            <div class="row">
+                <div class="col-12"></div>
+                <h3>Build Your Team</h3>
+            </div>
+        </div>
     </div>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav text-right">
-        <li class="nav-item">
-          <a class="nav-link" href="/leaderboard">Leaderboard</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Build Your Team</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About GTLA</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/admin">Commissioner</a>
-      </li>
-        
-      </ul>
+    <table class="table player-pick-table w-75">
+        <thead>
+            <tr>
+                <th scope="col" style="width: 20%">Category A</th>
+                <th scope="col" style="width: 20%">Category B</th>
+                <th scope="col" style="width: 20%">Category B</th>
+                <th scope="col" style="width: 20%">Category D</th>
+                <th scope="col" style="width: 20%">Category E</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="rank-row">
+                <td scope="row" style="width: 20%">Rank: 1 - 20</td>
+                <td scope="row" style="width: 20%">Rank: 21 - 40</td>
+                <td scope="row" style="width: 20%">Rank: 41 - 60</td>
+                <td scope="row" style="width: 20%">Rank: 61 - 80</td>
+                <td scope="row" style="width: 20%">Rank: 81 - 100</td>
+
+            </tr>
+
+            <tr>
+                <td scope="row" <div class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span id="selected-a">Choose player</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="a"></ul>
+                    </div>
+                </td>
+                <td scope="row" <div class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span id="selected-b">Choose player</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="b"></ul>
+                    </div>
+                </td>
+                <td scope="row" <div class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span id="selected-c">Choose player</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="c"></ul>
+                    </div>
+                </td>
+                <td scope="row" <div class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span id="selected-d">Choose player</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="d"></ul>
+                    </div>
+                </td>
+                <td scope="row" <div class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span id="selected-e">Choose player</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="e"></ul>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <div class="container w-25">
+        <div class="submit-players-container">
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary" id="submit">Submit</button>
+                </div>
+            </div>
+        </div>
 
     </div>
-  </nav>
-  <header>Choose Your Team:</header>
+
+
     <!-- Ranking A -->
-    <div class="dropdown">
-      <a
-        aria-expanded="false"
-        aria-haspopup="true"
-        role="button"
-        data-toggle="dropdown"
-        class="dropdown-toggle"
-        href="#"
-      >
-        <span id="selected-a">Chose option</span><span class="caret"></span
-      ></a>
-      <ul class="dropdown-menu" id="a"></ul>
-    </div>
+    <!-- <div class="dropdown">
+        <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span id="selected-a">Chose option</span><span class="caret"></span></a>
+        <ul class="dropdown-menu" id="a"></ul>
+    </div> -->
 
     <!-- Ranking B -->
-    <div class="dropdown">
-      <a
-        aria-expanded="false"
-        aria-haspopup="true"
-        role="button"
-        data-toggle="dropdown"
-        class="dropdown-toggle"
-        href="#"
-      >
-        <span id="selected-b">Chose option</span><span class="caret"></span
-      ></a>
-      <ul class="dropdown-menu" id="b"></ul>
-    </div>
+    <!-- <div class="dropdown">
+        <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span id="selected-b">Chose option</span><span class="caret"></span></a>
+        <ul class="dropdown-menu" id="b"></ul>
+    </div> -->
 
     <!-- Ranking C -->
-    <div class="dropdown">
-      <a
-        aria-expanded="false"
-        aria-haspopup="true"
-        role="button"
-        data-toggle="dropdown"
-        class="dropdown-toggle"
-        href="#"
-      >
-        <span id="selected-c">Chose option</span><span class="caret"></span
-      ></a>
-      <ul class="dropdown-menu" id="c"></ul>
-    </div>
+    <!-- <div class="dropdown">
+        <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span id="selected-c">Chose option</span><span class="caret"></span></a>
+        <ul class="dropdown-menu" id="c"></ul>
+    </div> -->
 
     <!-- Ranking D -->
-    <div class="dropdown">
-      <a
-        aria-expanded="false"
-        aria-haspopup="true"
-        role="button"
-        data-toggle="dropdown"
-        class="dropdown-toggle"
-        href="#"
-      >
-        <span id="selected-d">Chose option</span><span class="caret"></span
-      ></a>
-      <ul class="dropdown-menu" id="d"></ul>
-    </div>
+    <!-- <div class="dropdown">
+        <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span id="selected-d">Chose option</span><span class="caret"></span></a>
+        <ul class="dropdown-menu" id="d"></ul>
+    </div> -->
 
     <!-- Ranking E -->
-    <div class="dropdown">
-      <a
-        aria-expanded="false"
-        aria-haspopup="true"
-        role="button"
-        data-toggle="dropdown"
-        class="dropdown-toggle"
-        href="#"
-      >
-        <span id="selected-e">Chose option</span><span class="caret"></span
-      ></a>
-      <ul class="dropdown-menu" id="e"></ul>
-    </div>
+    <!-- <div class="dropdown">
+        <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span id="selected-e">Chose option</span><span class="caret"></span></a>
+        <ul class="dropdown-menu" id="e"></ul>
+    </div> -->
 
-    <button type="button" class="btn btn-primary" id="submit">Submit</button>
+    <!-- <button type="button" class="btn btn-primary" id="submit">Submit</button> -->
 
     <script>
-      // GET request to /api/players/:ranking
-      var rankings = ["a", "b", "c", "d", "e"];
+        // GET request to /api/players/:ranking
+        var rankings = ["a", "b", "c", "d", "e"];
 
-      rankings.forEach(function(ranking) {
-        $.get(`/api/players/${ranking}`).then(function(players) {
-          players.forEach(player => {
-            let liTag = $(`<li data-ID=${player.playerID}>`).html(
-              `<a href="#">${player.name}</a>`
-            );
-            liTag.on("click", function() {
-              $(`#selected-${ranking}`).text($(this).text());
-              $(`#selected-${ranking}`).attr("data-ID", $(this).data("id"));
-            });
-            $(`#${ranking}`).append(liTag);
-          });
-        });
-      });
-
-      // On submit
-      $("#submit").on("click", function() {
-        var participantID = parseInt(localStorage.participantID);
         rankings.forEach(function(ranking) {
-          // var playerName = $(`#selected-${ranking}`).text();
-          var playerID = $(`#selected-${ranking}`).data("id");
-          var pick = {
-            participantID: participantID,
-            playerID: playerID
-          };
-          console.log(pick);
-
-          $.post("/api/pick", pick, function(data) {
-            window.location.href = "/leaderboard";
-          });
+            $.get(`/api/players/${ranking}`).then(function(players) {
+                players.forEach(player => {
+                    let liTag = $(`<li data-ID=${player.playerID}>`).html(
+                        `<a href="#">${player.name}</a>`
+                    );
+                    liTag.on("click", function() {
+                        $(`#selected-${ranking}`).text($(this).text());
+                        $(`#selected-${ranking}`).attr("data-ID", $(this).data("id"));
+                    });
+                    $(`#${ranking}`).append(liTag);
+                });
+            });
         });
-      });
+
+        // On submit
+        $("#submit").on("click", function() {
+            var participantID = parseInt(localStorage.participantID);
+            rankings.forEach(function(ranking) {
+                // var playerName = $(`#selected-${ranking}`).text();
+                var playerID = $(`#selected-${ranking}`).data("id");
+                var pick = {
+                    participantID: participantID,
+                    playerID: playerID
+                };
+                console.log(pick);
+
+                $.post("/api/pick", pick, function(data) {
+                    window.location.href = "/leaderboard";
+                });
+            });
+        });
     </script>
-  </body>
+</body>
+
 </html>
