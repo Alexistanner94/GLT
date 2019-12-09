@@ -2,111 +2,107 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <title>Sign In</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <title>Sign In</title>
 </head>
 
 <body>
-  <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light">
 
-    <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="/">
       GLTA
     </a>
-  
-    <div class="d-flex flex-row">
-      <a class="nav-link active" href="/">
+
+        <div class="d-flex flex-row">
+            <a class="nav-link active" href="/">
         Login
       </a>
-      <a class="nav-link" href="/signup">
+            <a class="nav-link" href="/signup">
         Register
       </a>
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span>
           <img src="./images/clubbin.jpg" width="30" height="30">
         </span>
       </button>
-    </div>
-  
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav text-right">
-        <li class="nav-item">
-          <a class="nav-link" href="/leaderboard">Leaderboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/buildteam">Build Your Team</a>
-        </li>
-        <li class="nav-item "
-          <a class="nav-link" href="/about" >About GTLA</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/admin">Commissioner</a>
-      </li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="bg-image">
-    <img src="./images/golf3.png" alt="" class="center" />
-  </div>
-
-  <div class="bg-text">
-    <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: xx-large;">
-      Welcome to Golf League Tournment Action!
-    </h1>
-    <div>
-      <form class="px-4 py-3">
-        <div class="form-group">
-          <label for="exampleDropdownFormEmail1">Email address</label>
-          <input type="email" id="exampleDropdownFormEmail1" placeholder="email@example.com">
         </div>
-        <div class="form-group">
-          <label for="exampleDropdownFormPassword1">Password</label>
-          <input type="password" id="exampleDropdownFormPassword1" placeholder="Password">
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav text-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="/leaderboard">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/buildteam">Build Your Team</a>
+                </li>
+                <li class="nav-item " <a class="nav-link" href="/about">About GTLA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Commissioner</a>
+                </li>
+            </ul>
         </div>
-        <div class="form-group">
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="dropdownCheck">
-            <label class="form-check-label" for="dropdownCheck">
+    </nav>
+
+    <div class="bg-image">
+        <img src="./images/golf3.png" alt="" class="center" />
+    </div>
+
+    <div class="bg-text">
+        <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: xx-large;">
+            Welcome to Golf League Tournment Action!
+        </h1>
+        <div>
+            <form class="px-4 py-3">
+                <div class="form-group">
+                    <label for="exampleDropdownFormEmail1">Email address</label>
+                    <input type="email" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="exampleDropdownFormPassword1">Password</label>
+                    <input type="password" id="exampleDropdownFormPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                        <label class="form-check-label" for="dropdownCheck">
               Remember me
             </label>
-          </div>
+                    </div>
+                </div>
+                <input id='submitbutton' type="button" onclick="location.href='/leaderboard';" value='Submit' />
+            </form>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/signup">New around here? Sign up</a>
+            <a class="dropdown-item" href="#">Forgot password?</a>
         </div>
-        <input id='submitbutton' type="button" onclick="location.href='/leaderboard';" value='Submit' />
-      </form>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="/signup">New around here? Sign up</a>
-      <a class="dropdown-item" href="#">Forgot password?</a>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-    </form>
-    <div class="dropdown-divider"></div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+        <!-- <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="signup.html">New around here? Sign up</a>
-    <a class="dropdown-item" href="#">Forgot password?</a>
-  </div>
-  </div>
+    <a class="dropdown-item" href="#">Forgot password?</a> -->
+    </div>
+    </div>
 
-  <script>
-    // // Get the modal
-    // var modal = document.getElementById("id01");
+    <script>
+        // // Get the modal
+        // var modal = document.getElementById("id01");
 
-    // // When the user clicks anywhere outside of the modal, close it
-    // window.onclick = function(event) {
-    //   if (event.target == modal) {
-    //     modal.style.display = "none";
-    //   }
-    // };
-  </script>
-  </div>
+        // // When the user clicks anywhere outside of the modal, close it
+        // window.onclick = function(event) {
+        //   if (event.target == modal) {
+        //     modal.style.display = "none";
+        //   }
+        // };
+    </script>
+    </div>
 </body>
 
 </html>
