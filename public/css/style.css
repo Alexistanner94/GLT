@@ -373,3 +373,35 @@ body#pa {
 
 /* End of participant add/delete page code formatting
 ---------------------------------------------- */
+
+
+/* ----------------------------------------------
+Beginning of buid team page code */
+
+.player-pick-table {
+    background-color: rgb(196, 190, 190);
+    margin: 40px auto 0px auto;
+}
+
+.submit-players-container {
+    margin: 0 auto;
+}
+
+.pick-header-container {
+    color: white;
+    margin-top: 30px;
+    margin-left: -30px;
+}
+
+.submit-players-container button {
+    width: 100%;
+    margin-top: 150px;
+}
+
+.rank-row {
+    font-size: 14px;
+}
+
+
+/* End of build team code 
+---------------------------------------------- */
